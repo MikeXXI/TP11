@@ -14,6 +14,7 @@ public class FraisPortMondialRelayStrategy implements FraisPortStrategy {
     // TODO à vous de déterminer s'il y a besoin d'attributs
     private Commande contexte;
     private List<Livre> livres;
+    private LivreDTO leLivre;
     private LivreRepository livreRepository;
 
     public FraisPortMondialRelayStrategy(Commande contexte) {
@@ -33,7 +34,8 @@ public class FraisPortMondialRelayStrategy implements FraisPortStrategy {
         double poidsTotal = 0;
         livres = this.contexte.getLivres(livreRepository);
         for(Livre livre : livres) {
-            poidsTotal += livre.getPoids();
+            leLivre = livre.toDTO();
+            poidsTotal += leLivre.getPoids();
         }
         if(poidsTotal <= 3) {
             fraisPort = 4;

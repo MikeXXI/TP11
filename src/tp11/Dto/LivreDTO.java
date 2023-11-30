@@ -21,9 +21,6 @@ public class LivreDTO  implements TransferableObject{
         this.poids = poids;
     }
 
-    public LivreDTO() {
-    }
-
     public int getId() {
         return id;
     }

@@ -44,11 +44,7 @@ public class Livre implements Entity {
     }
 
     public LivreDTO toDTO() {
-        LivreDTO livreDTO = new LivreDTO();
-        livreDTO.setId(id);
-        livreDTO.setTitre(titre);
-        livreDTO.setAuteur(auteur);
-        livreDTO.setPoids(poids);
+        LivreDTO livreDTO = new LivreDTO(this.getId(), this.getTitre(), this.getAuteur(), this.getPoids());
         return livreDTO;
     }
 }
