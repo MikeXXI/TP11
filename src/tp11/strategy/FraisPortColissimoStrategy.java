@@ -2,6 +2,8 @@ package tp11.strategy;
 
 import tp11.Commande;
 import tp11.Dto.LivreDTO;
+import tp11.Livre;
+import tp11.Repo.LivreRepository;
 
 import java.util.List;
 
@@ -10,9 +12,13 @@ import java.util.List;
  */
 public class FraisPortColissimoStrategy implements FraisPortStrategy {
     // TODO à vous de déterminer s'il y a besoin d'attributs
+    private Commande contexte;
+    private List<Livre> livres;
+    private LivreRepository livreRepository;
 
     public FraisPortColissimoStrategy(Commande contexte) {
         // TODO
+        this.contexte = contexte;
     }
 
     /***
@@ -24,6 +30,21 @@ public class FraisPortColissimoStrategy implements FraisPortStrategy {
     @Override
     public double calculerFraisPort() {
         // TODO Calcul basé sur le poids des livres
-        return 0 ;
+        double fraisPort = 0;
+        double poidsTotal = 0;
+        //il faut que je retrouve le poids, mais pour ça je dois utiliser
+        //le repo non ???
+        livres = this.contexte.getLivres(livreRepository);
+        for(Livre livre : livres) {
+            poidsTotal += livre.getPoids();
+        }
+        if(poidsTotal <= 1) {
+            fraisPort = 3;
+        } else if(poidsTotal <= 3) {
+            fraisPort = 5;
+        } else {
+            fraisPort = 15;
+        }
+        return fraisPort;
     }
 }

@@ -72,9 +72,9 @@ public class Commande implements Entity {
     }
     public List<Livre> getLivres(LivreRepository repo) {
         //  à verifier si suffisant
-        if (livres == null){
+        if (livres == null) {
             livres = repo.getLivresByIds(livreIds);
-        }else{
+        } else {
             return livres;
         }
         return null;
@@ -85,8 +85,7 @@ public class Commande implements Entity {
     // Pattern Strategy
     public double calculerFraisDePort(FraisPortStrategy strategy)
     {
-        //  à coder
-         return 0 ;
+         return strategy.calculerFraisPort();
     }
 
     // Pattern State
