@@ -34,10 +34,10 @@ public class LivreRepositoryImpl implements LivreRepository {
     public void save(Livre livre) {
         livres.put(livre.getId(), livre);
     }
-    @Override
-    public List<Livre> getLivresByIds(List<Integer> livreIds) {
-        return null;
-    }
+    // @Override
+    // public List<Livre> getLivresByIds(List<Integer> livreIds) {
+    //     return null;
+    // }
 
     
 

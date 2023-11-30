@@ -44,7 +44,11 @@ public class Livre implements Entity {
     }
 
     public LivreDTO toDTO() {
-        // TODO � �crire
-        return null ;
+        LivreDTO livreDTO = new LivreDTO();
+        livreDTO.setId(id);
+        livreDTO.setTitre(titre);
+        livreDTO.setAuteur(auteur);
+        livreDTO.setPoids(poids);
+        return livreDTO;
     }
 }

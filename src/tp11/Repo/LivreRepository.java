@@ -18,7 +18,7 @@ public interface LivreRepository {
 
     void save(Livre livre);
 
-    List<Livre> getLivresByIds(List<Integer> livreIds);
+    //List<Livre> getLivresByIds(List<Integer> livreIds);
 
     
 }

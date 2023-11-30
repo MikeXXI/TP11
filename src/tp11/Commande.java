@@ -73,11 +73,15 @@ public class Commande implements Entity {
     public List<Livre> getLivres(LivreRepository repo) {
         //  à verifier si suffisant
         if (livres == null) {
-            livres = repo.getLivresByIds(livreIds);
-        } else {
-            return livres;
+         livres = new ArrayList<>();
+            for (int livreId : livreIds) {
+                Livre livre = repo.findById(livreId);
+                if (livre != null){
+                    livres.add(livre);
+                }
+            }
         }
-        return null;
+        return livres;
     }
     // Fin Lazyloading
 
